@@ -1,0 +1,232 @@
+{% block doc %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+      
+{% block metas %}
+ 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+{% endblock metas %}
+
+    <title>ALL DC AIRPORTS</title>
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendor/font-awesome/css/font-awesome.min.css')}}">  
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendor/simple-line-icons/css/simple-line-icons.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/landing-page.min.css')}}" rel="stylesheet" type="text/css">
+{% endblock styles %}
+
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  
+
+  </head>
+
+  <body>
+
+    
+    <!-- Masthead -->
+    <header class="masthead text-white text-center">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-12 mx-auto">
+              <h1 class="mb-5">DC AIRPORTS</h1>
+            </div>
+   
+              
+                      <div class="col-12 col-md-3">
+                    
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </header>
+
+    <!-- Icons Grid -->
+    <section class="features-icons bg-light text-center">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-lg-6">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+              <div class="features-icons-icon d-flex">
+                <i class="icon-check m-auto text-primary"></i>
+              </div>
+              <h3>DC Metro Main Airports</h3>
+              <p class="lead mb-0">
+                There are three big airports in DC Metro Area: 
+                  </p>
+                  <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><a href="https://www.flydulles.com/iad/dulles-international-airport" target="_blank">Dulles International Airport (IAD)</a> &nbsp &nbsp <a href="https://twitter.com/Dulles_Airport" class="fa fa-twitter ml-8"></a></li> 
+                      <li class="list-group-item"><a href="https://www.bwiairport.com/" target="_blank">Baltimore/Washington International Thurgood Marshall Airport (BWI)</a> &nbsp &nbsp <a href="https://twitter.com/bwi_airport" class="fa fa-twitter ml-8"></a></li> 
+                      <li class="list-group-item"><a href="https://www.flyreagan.com" target="_blank">Ronald Reagan Washington National Airport (DCA)</a> &nbsp &nbsp <a href="https://twitter.com/Reagan_Airport" class="fa fa-twitter ml-8"></a></li>
+                  </ul>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+              <div class="features-icons-icon d-flex">
+                <i class="icon-check m-auto text-primary"></i>
+              </div>
+              <h3> DC alternate Airports</h3>
+              <p class="lead mb-0">Four other big airports could be used for flight from and to DC.
+                   </p>
+                   <ul class="list-group list-group-flush">
+                     <li class="list-group-item"><a href="https://flyrichmond.com/" target="_blank">Richmond International Airport (RIC)</a> &nbsp<a href="https://twitter.com/flack4ric" class="fa fa-twitter ml-8"></a></li> 
+                      <li class="list-group-item"><a href="https://www.norfolkairport.com/" target="_blank">Norfolk Int Airport(ORF)</a> &nbsp &nbsp<a href="https://twitter.com/NorfolkAirport" class="fa fa-twitter ml-8"></a></li> 
+                      <li class="list-group-item"><a href="https://twitter.com/flyhia" target="_blank">Harrisburg Int Airport (MDT)</a> &nbsp &nbsp <a href="https://twitter.com/flyhia" class="fa fa-twitter ml-8"></a></li>
+                     <li class="list-group-item"><a href="https://www.phl.org/" target="_blank">Philadelphia Int Airport (PHL)</a> &nbsp &nbsp <a href="https://twitter.com/PHLAirport" class="fa fa-twitter ml-8"></a></li>
+                      </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Image Showcases -->
+    <section class="showcase">
+      <div class="container-fluid p-0">
+        <div class="row no-gutters">
+
+          <div class="col-lg-6 order-lg-2 my-auto showcase-text;">
+            <div class="embed-responsive embed-responsive-1by1">
+            <iframe src="https://www.google.com/maps/d/embed?mid=176WTPtWdklBI2tt7ZL0C8nftize1hhsD" width="640" height="640"></iframe>
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+            
+            <h2>DC Airports</h2>
+            <p class="lead mb-0"> There are three airports in DC Metro Area: Dulles International Airport (IAD)
+              Ronald Reagan Washington National Airport (DCA)
+              Baltimore/Washington International Thurgood Marshall Airport (BWI). Four other big airports could be used for flight from and to DC. In the right window you can see an interactive map where you can calculate the distance from you to all seven airports.  </p>
+          </div>
+        </div>
+        
+        <div class="row no-gutters">
+          
+        <div class="col-lg-12 order-lg-1 my-auto showcase-text">
+          <div class="container-fluid">     
+            <h2>What people are tweeting about from DC Airports? Our Web App deliveres the last tweets about and from the airports!</h2>
+            <hr>
+           <ul class="list-group">
+                <p class="lead mb-0">
+                  {% for it in docs %}
+             <li class="list-group-item"> <a href ="https://twitter.com/{{ it.user.screen_name }}/status/{{it.id}}" target="_blank"</a>
+                 Twitted at {{ it.created_at }} 
+                <br>Twitter user {{ it.user.screen_name }} from {{ it.user.location }} writes : 
+                <br><p> <b> {{ it.full_text }} </b></p>
+                <!--a href ="https://twitter.com/{{ it.user.screen_name }}/status/{{it.id}}"</a-->
+              </li>
+
+              {% endfor %}
+            </p>
+             </ul>
+           <!-- <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>-->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials 
+    <section class="testimonials text-center lg-light">
+      <div class="container">
+        <h6 class="mb-">About me</h6>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                <img src="{{ url_for('static', filename = 'img/testimoni.jpg') }}" width="130" height="200" alt="mypic" title="myPic" border="3">   
+              <h5>Tanja Nyberg</h5>
+              <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
+            </div>
+          </div>
+        </div>  
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action 
+    <section class="call-to-action text-white text-center">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <h2 class="mb-4">Ready to get started? Sign up now!</h2>
+          </div>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+            <form>
+              <div class="form-row">
+                <div class="col-12 col-md-9 mb-2 mb-md-0">
+                  <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
+                </div>
+                <div class="col-12 col-md-3">
+                  <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item">
+                <a href="#">About</a>
+              </li>
+              <li class="list-inline-item">&sdot;</li>
+              <li class="list-inline-item">
+                <a href="#">Contact</a>
+              </li>
+              <li class="list-inline-item">&sdot;</li>
+              <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+              </li>
+              <li class="list-inline-item">&sdot;</li>
+              <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+              </li>
+            </ul>
+            <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2018. All Rights Reserved.</p>
+          </div>
+          <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item mr-3">
+                <a href="https://github.com/TanjaNY" target="-blank">
+                  <i class="fa fa-github fa-2x fa-fw"></i>
+                </a>
+              </li>
+              <!--li class="list-inline-item mr-3">
+                <a href="#">
+                  <i class="fa fa-twitter fa-2x fa-fw"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-instagram fa-2x fa-fw"></i>
+                </a>
+              </li-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    {% block scripts %}
+    <script src="{{url_for('.static', filename='vendor/jquery/jquery.min.js')}}"></script> 
+    <script src="{{url_for('.static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    {% endblock scripts %} 
+  </body>
+</html> 
+{% endblock doc %}
